@@ -1086,7 +1086,7 @@
 
 
 
-{{ Form::submit('Registrar' , array('class'=> 'btn btn-primary')) }}
+{{ Form::submit('Modificar' , array('class'=> 'btn btn-primary')) }}
 
 {{ Form::close() }}
 

@@ -161,7 +161,7 @@ function main(){
 					apellidos.val(data.propietario.apellido);
 					email.val(data.propietario.email);
 					telefono.val(data.propietario.telefono);
-					celular.val(data.propietario.telefono);
+					celular.val(data.propietario.celular);
 					
 				},
 				error: function(){

@@ -129,57 +129,107 @@
 						<ul class="ulx">
 							<li>
 								<div class="contenedor_general">
+								@if(Request::url() === 'http://localhost/grupomesaFinal'){{-- En el servidor hay q cambiar el url --}}
+								  	<div class="contenedor_dos">
+										<p class="texto_dos"><a href="{{URL::to('/#contenido')}}">Inicio</a></p>
+									</div>
+									<div class="contenedor_dos">
+										<p class="texto_uno"><a href="{{URL::to('/#contenido')}}">Inicio</a></p>
+									</div>
+								@else
 									<div class="contenedor_uno">
 										<p class="texto_uno"><a href="{{URL::to('/#contenido')}}">Inicio</a></p>
 									</div>
 									<div class="contenedor_dos">
 										<p class="texto_dos"><a href="{{URL::to('/#contenido')}}">Inicio</a></p>
 									</div>
+								@endif
+									
 								</div>
 							</li>
 
 							<li>
 								<div class="contenedor_general">
-									<div class="contenedor_uno">
-										<p class="texto_uno"><a href="{{URL::to('/servicios#contenido')}}">Nuestra Empresa</a></p>
+								@if(Request::url() === 'http://localhost/grupomesaFinal/servicios'){{-- En el servidor hay q cambiar el url --}}
+									<div class="contenedor_dos">
+										<p class="texto_dos"><a href="{{URL::to('/servicios#contenido')}}">Nuestra Empresa</a></p>
 									</div>
 									<div class="contenedor_dos">
 										<p class="texto_dos"><a href="{{URL::to('/servicios#contenido')}}">Nuestra Empresa</a></p>
 									</div>
+								@else
+									<div class="contenedor_uno">
+										<p class="texto_dos"><a href="{{URL::to('/servicios#contenido')}}">Nuestra Empresa</a></p>
+									</div>
+									<div class="contenedor_dos">
+										<p class="texto_dos"><a href="{{URL::to('/servicios#contenido')}}">Nuestra Empresa</a></p>
+									</div>
+									{{Request::url()}}
+								@endif	
 								</div>
 							</li>
-							<li>
+							<li>																
 								<div class="contenedor_general">
+								@if(Request::url() === 'http://localhost/grupomesaFinal/Venta'){{-- En el servidor hay q cambiar el url --}}
+									<div class="contenedor_dos">
+										<p class="texto_uno"><a href="{{URL::to('Venta#contenido')}}">Ventas</a></p>
+									</div>
+									<div class="contenedor_dos">
+										<p class="texto_dos"><a href="{{URL::to('Venta#contenido')}}">Ventas</a></p>
+									</div>
+								@else
 									<div class="contenedor_uno">
 										<p class="texto_uno"><a href="{{URL::to('Venta#contenido')}}">Ventas</a></p>
 									</div>
 									<div class="contenedor_dos">
 										<p class="texto_dos"><a href="{{URL::to('Venta#contenido')}}">Ventas</a></p>
 									</div>
+								@endif
+									
 								</div>
 							</li>                  
 							<li>
 								<div class="contenedor_general">
-									<div class="contenedor_uno">
+								@if(Request::url() === 'http://localhost/grupomesaFinal/Alquiler'){{-- En el servidor hay q cambiar el url --}}
+									<div class="contenedor_dos">
 										<p class="texto_uno"><a href="{{URL::to('Alquiler#contenido')}}">Alquiler</a></p>
 									</div>
 									<div class="contenedor_dos">
 										<p class="texto_dos"><a href="{{URL::to('Alquiler#contenido')}}">Alquiler</a></p>
 									</div>
+								@else
+								<div class="contenedor_uno">
+										<p class="texto_uno"><a href="{{URL::to('Alquiler#contenido')}}">Alquiler</a></p>
+									</div>
+									<div class="contenedor_dos">
+										<p class="texto_dos"><a href="{{URL::to('Alquiler#contenido')}}">Alquiler</a></p>
+									</div>
+								@endif	
+									
 								</div>
 							</li> 
 							<li>
 								<div class="contenedor_general">
-									<div class="contenedor_uno">
-										<p class="texto_uno"><a href="{{URL::to('/Contactenos#contenido')}}">Contáctenos</a></p>
+								@if(Request::url() === 'http://localhost/grupomesaFinal/Contactenos'){{-- En el servidor hay q cambiar el url --}}
+									<div class="contenedor_dos">
+										<p class="texto_uno"><a href="{{URL::to('/Contactenos#contenido')}}">Cont&aacute;ctenos</a></p>
 									</div>
 									<div class="contenedor_dos">
-										<p class="texto_dos"><a href="{{URL::to('/Contactenos#contenido')}}">Contáctenos</a></p>
+										<p class="texto_dos"><a href="{{URL::to('/Contactenos#contenido')}}">Cont&aacute;ctenos</a></p>
 									</div>
+								@else
+									<div class="contenedor_uno">
+										<p class="texto_uno"><a href="{{URL::to('/Contactenos#contenido')}}">Cont&aacute;ctenos</a></p>
+									</div>
+									<div class="contenedor_dos">
+										<p class="texto_dos"><a href="{{URL::to('/Contactenos#contenido')}}">Cont&aacute;ctenos</a></p>
+									</div>	
+								@endif	
 								</div>
 							</li>
 							<li id="buscanav">
 								<div class="contenedor_general">
+								
 									<div class="contenedor_uno">
 										<p class="texto_uno"><a href="{{URL::to('/minibuscador#contenido')}}">Buscador</a></p>
 									</div>
