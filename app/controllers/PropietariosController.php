@@ -101,8 +101,8 @@
 				'nombre' => 'required|max:25',
 				'apellido' => 'required|max:30',
 				'email' => 'required|email',
-				'telefono' => 'numeric|between:0,99999999',
-				'celular' => 'numeric|between:0,99999999'
+				'telefono' => 'numeric|between:0,999999999999999',
+				'celular' => 'numeric|between:0,999999999999999'
 				);
 			$message = array(
 				'required' => 'El campo :attribute es requerido',
@@ -124,8 +124,8 @@
 				'nombre' => 'required|max:25',
 				'apellido' => 'required|max:30',
 				'email' => 'required|email',
-				'telefono' => 'numeric|between:0,99999999',
-				'celular' => 'numeric|between:0,99999999'
+				'telefono' => 'numeric|between:0,999999999999999',
+				'celular' => 'numeric|between:0,999999999999999'
 				);
 			$message = array(
 				'required' => 'el campo :attribute es requerido',

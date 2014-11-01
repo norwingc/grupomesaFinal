@@ -10,23 +10,32 @@
 	<link rel="shortcut icon" href="{{asset ('img/logo.png') }}" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="content-type" content="text/html"/>
+	<!-- Open Graph data -->
+	<meta property="og:title" content="Grupo M.E.S.A." />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="" />
+	<meta property="og:image" content="" />
+	<meta property="og:description" content="" />
+	<meta property="og:site_name" content="" />
+	<meta property="og:price:amount" content="15.00" />
+	<meta property="og:price:currency" content="USD" />
 
 	<meta name="keywords" content="Alquiler de Casas en Nicaragua,Alquiler de casas, en  Managua,Alquiler de Casas en Granada,Alquiler de Casas en Masaya,
-	Alquiler de Casas en LeÛn,Alquiler de Casas en EstelÌ,Alquiler de Casas,Alquiler de Apartamentos,Alquiler de Bodegas,
-	Alquiler de MÛdulos,Alquiler de Locales,Alquiler de Edificios,Alquiler,alquilar,Se alquila,Deseo alquilar,Arrendar,
+	Alquiler de Casas en Le√≥n,Alquiler de Casas en Estel√≠,Alquiler de Casas,Alquiler de Apartamentos,Alquiler de Bodegas,
+	Alquiler de M√≥dulos,Alquiler de Locales,Alquiler de Edificios,Alquiler,alquilar,Se alquila,Deseo alquilar,Arrendar,
 	Arriendo,Alquilo,Renta,Rentar,Casas,Terreno,Lote,Finca,Edificio,Modulo,Comercial,Quinta,Venta,Vender,Vendo,Vender casa
 	,Vender Finca,Vender Edificio,Vender Modulo,Vender Apartamento,Vender Propiedad, propiedades,Comprar,Comprar Casa,Comprar finca,
 	Comprar Edificio,Comprar Modulo,Comprar Finca,Comprar Terreno,Comprar local,Comprar playa,Comprar Isla,Comprar apartamento,Compro,
-	Comprare,Promover,InversiÛn,Deseo,Deseo Comprar Casa,Deseo Comprar Local,Deseo Comprar Modulo,Deseo Comprar, Edificio,Deseo Comprar Apartamento,
-	Quiero,Necesito,Busco,Ganga,Precios bajo,Barato,Nicaragua,Vivir en Nicaragua,Managua,Centro AmÈrica,Isla,
-    Playa,Mar,Costa,MontaÒa,Lago,Vista al Mar,Vista al Lago,Vista a la MontaÒa,Frente al Mar,Frente al Lago,Piscina,JardÌn,¡reas Verdes,
-    Canal Inter oce·nico,Ruta del Canal,Invertir,InversiÛn,Inmuebles,Inmobiliaria,Bienes RaÌces,Real Estate,Real Estate Nicaragua,Apartamentos Amueblado,
-    Casa Amueblada,Muebles,Habitaciones,BaÒos,BaÒos,Cocina,Terraza,BalcÛn,Carretera a Masaya,Villa Fontana,Las Colinas,Carretera Sur,Centro de Managua,Promover,Casa nica,Bolsa nica,
-    Momotombo,Encuentra 24,Google,Buscar,Encontrar,Precio,Varas,Metros,Manzanas,Hect·rea,¡rea construida,Residencial,Barrio,Condominio,UrbanizaciÛn,
-    Oficinas,Bien inmueble,Establecimiento,Hogar,Patio,Restaurante,Casino,Hotel,HabitaciÛn,Vivir,Residir,HospitalizaciÛn,Cuarto,Garaje,BalcÛn,Alcoba,Recamara,Agua caliente,
-    Mirador,Vista a la MontaÒa,ConstrucciÛn,Piso,Puerta,Techo,Porche,Casa con Porche,Casa con Patio,¡rea Verde,¡rea Social,Barbacoa,¡rea de Lavado,Cuarto de Servicio,
-     HabitaciÛn de Servicio,Aire,acondicionado,Amoblado,amoblada,LÌnea,Blanca,Cocina,Comedor,Sala,Hipoteca,Casa,financiada,Nica,Nicaragua,Nicarag¸ense,
-	rental houses in Managua,Rental Home in Granada,Vacation Homes in Masaya,Vacation Homes in Leon,Vacation Homes in EstelÌ,Vacation Homes,
+	Comprare,Promover,Inversi√≥n,Deseo,Deseo Comprar Casa,Deseo Comprar Local,Deseo Comprar Modulo,Deseo Comprar, Edificio,Deseo Comprar Apartamento,
+	Quiero,Necesito,Busco,Ganga,Precios bajo,Barato,Nicaragua,Vivir en Nicaragua,Managua,Centro Am√©rica,Isla,
+    Playa,Mar,Costa,Monta√±a,Lago,Vista al Mar,Vista al Lago,Vista a la Monta√±a,Frente al Mar,Frente al Lago,Piscina,Jard√≠n,√Åreas Verdes,
+    Canal Inter oce√°nico,Ruta del Canal,Invertir,Inversi√≥n,Inmuebles,Inmobiliaria,Bienes Ra√≠ces,Real Estate,Real Estate Nicaragua,Apartamentos Amueblado,
+    Casa Amueblada,Muebles,Habitaciones,Ba√±os,Ba√±os,Cocina,Terraza,Balc√≥n,Carretera a Masaya,Villa Fontana,Las Colinas,Carretera Sur,Centro de Managua,Promover,Casa nica,Bolsa nica,
+    Momotombo,Encuentra 24,Google,Buscar,Encontrar,Precio,Varas,Metros,Manzanas,Hect√°rea,√Årea construida,Residencial,Barrio,Condominio,Urbanizaci√≥n,
+    Oficinas,Bien inmueble,Establecimiento,Hogar,Patio,Restaurante,Casino,Hotel,Habitaci√≥n,Vivir,Residir,Hospitalizaci√≥n,Cuarto,Garaje,Balc√≥n,Alcoba,Recamara,Agua caliente,
+    Mirador,Vista a la Monta√±a,Construcci√≥n,Piso,Puerta,Techo,Porche,Casa con Porche,Casa con Patio,√Årea Verde,√Årea Social,Barbacoa,√Årea de Lavado,Cuarto de Servicio,
+     Habitaci√≥n de Servicio,Aire,acondicionado,Amoblado,amoblada,L√≠nea,Blanca,Cocina,Comedor,Sala,Hipoteca,Casa,financiada,Nica,Nicaragua,Nicarag√ºense,
+	rental houses in Managua,Rental Home in Granada,Vacation Homes in Masaya,Vacation Homes in Leon,Vacation Homes in Estel√≠,Vacation Homes,
     Apartments for rent,Self Storage,Vacation Modules,Space For Rent,Building Rental,Rental,rent,To rent,I want to rent,Lease,Rent ,Houses,Plot,Lot,Villa,
     Building,Module,Commercial,Fifth,Sale,Sell,Buy,Sell home,Sell Finch,Sell Building,Sell Module,Sell Apartment,Selling property, properties,Buy,
     Buy a House,Buy farm,Buy Building,Buy Modulo,Buy Villa,Buy Land,Local Buy,Buy beach,Buy Island,Buy apartment,
@@ -102,9 +111,9 @@
 			</div>
 								<div class="infoB">
 
-<h4>Telefonos: 505-22537777</h4>
+<h4>Tel√©fonos: 505-22537777</h4>
 <h4>USA:0109453530</h4>
-<h4>Email.ventas@grupomesa.com</h4>
+<h4>Email:ventas@grupo-mesa.com</h4>
 <h4>Skype: mesabienesraices</h4>
 			</div>
 		</section>
@@ -129,19 +138,19 @@
 						<ul class="ulx">
 							<li>
 								<div class="contenedor_general">
-								@if(Request::url() === 'http://localhost/grupomesaFinal'){{-- En el servidor hay q cambiar el url --}}
+								@if(Request::url() === 'http://ex000620.ferozo.com'){{-- En el servidor hay q cambiar el url --}}
 								  	<div class="contenedor_dos">
-										<p class="texto_dos"><a href="{{URL::to('/#contenido')}}">Inicio</a></p>
+										<p class="texto_dos"><a href="{{URL::to('/#ContenidoPrincipal')}}">Inicio</a></p>
 									</div>
 									<div class="contenedor_dos">
-										<p class="texto_uno"><a href="{{URL::to('/#contenido')}}">Inicio</a></p>
+										<p class="texto_uno"><a href="{{URL::to('/#ContenidoPrincipal')}}">Inicio</a></p>
 									</div>
 								@else
 									<div class="contenedor_uno">
-										<p class="texto_uno"><a href="{{URL::to('/#contenido')}}">Inicio</a></p>
+										<p class="texto_uno"><a href="{{URL::to('/#ContenidoPrincipal')}}">Inicio</a></p>
 									</div>
 									<div class="contenedor_dos">
-										<p class="texto_dos"><a href="{{URL::to('/#contenido')}}">Inicio</a></p>
+										<p class="texto_dos"><a href="{{URL::to('/#ContenidoPrincipal')}}">Inicio</a></p>
 									</div>
 								@endif
 									
@@ -150,19 +159,19 @@
 
 							<li>
 								<div class="contenedor_general">
-								@if(Request::url() === 'http://localhost/grupomesaFinal/servicios'){{-- En el servidor hay q cambiar el url --}}
+								@if(Request::url() === 'http://ex000620.ferozo.com/servicios'){{-- En el servidor hay q cambiar el url --}}
 									<div class="contenedor_dos">
-										<p class="texto_dos"><a href="{{URL::to('/servicios#contenido')}}">Nuestra Empresa</a></p>
+										<p class="texto_dos"><a href="{{URL::to('/servicios#ContenidoPrincipal')}}">Nuestra Empresa</a></p>
 									</div>
 									<div class="contenedor_dos">
-										<p class="texto_dos"><a href="{{URL::to('/servicios#contenido')}}">Nuestra Empresa</a></p>
+										<p class="texto_dos"><a href="{{URL::to('/servicios#ContenidoPrincipal')}}">Nuestra Empresa</a></p>
 									</div>
 								@else
 									<div class="contenedor_uno">
-										<p class="texto_dos"><a href="{{URL::to('/servicios#contenido')}}">Nuestra Empresa</a></p>
+										<p class="texto_dos"><a href="{{URL::to('/servicios#ContenidoPrincipal')}}">Nuestra Empresa</a></p>
 									</div>
 									<div class="contenedor_dos">
-										<p class="texto_dos"><a href="{{URL::to('/servicios#contenido')}}">Nuestra Empresa</a></p>
+										<p class="texto_dos"><a href="{{URL::to('/servicios#ContenidoPrincipal')}}">Nuestra Empresa</a></p>
 									</div>
 									{{Request::url()}}
 								@endif	
@@ -170,19 +179,19 @@
 							</li>
 							<li>																
 								<div class="contenedor_general">
-								@if(Request::url() === 'http://localhost/grupomesaFinal/Venta'){{-- En el servidor hay q cambiar el url --}}
+								@if(Request::url() === 'http://ex000620.ferozo.com/Venta'){{-- En el servidor hay q cambiar el url --}}
 									<div class="contenedor_dos">
-										<p class="texto_uno"><a href="{{URL::to('Venta#contenido')}}">Ventas</a></p>
+										<p class="texto_uno"><a href="{{URL::to('Venta#ContenidoPrincipal')}}">Ventas</a></p>
 									</div>
 									<div class="contenedor_dos">
-										<p class="texto_dos"><a href="{{URL::to('Venta#contenido')}}">Ventas</a></p>
+										<p class="texto_dos"><a href="{{URL::to('Venta#ContenidoPrincipal')}}">Ventas</a></p>
 									</div>
 								@else
 									<div class="contenedor_uno">
-										<p class="texto_uno"><a href="{{URL::to('Venta#contenido')}}">Ventas</a></p>
+										<p class="texto_uno"><a href="{{URL::to('Venta#ContenidoPrincipal')}}">Ventas</a></p>
 									</div>
 									<div class="contenedor_dos">
-										<p class="texto_dos"><a href="{{URL::to('Venta#contenido')}}">Ventas</a></p>
+										<p class="texto_dos"><a href="{{URL::to('Venta#ContenidoPrincipal')}}">Ventas</a></p>
 									</div>
 								@endif
 									
@@ -190,19 +199,19 @@
 							</li>                  
 							<li>
 								<div class="contenedor_general">
-								@if(Request::url() === 'http://localhost/grupomesaFinal/Alquiler'){{-- En el servidor hay q cambiar el url --}}
+								@if(Request::url() === 'http://ex000620.ferozo.com/Alquiler'){{-- En el servidor hay q cambiar el url --}}
 									<div class="contenedor_dos">
-										<p class="texto_uno"><a href="{{URL::to('Alquiler#contenido')}}">Alquiler</a></p>
+										<p class="texto_uno"><a href="{{URL::to('Alquiler#ContenidoPrincipal')}}">Alquiler</a></p>
 									</div>
 									<div class="contenedor_dos">
-										<p class="texto_dos"><a href="{{URL::to('Alquiler#contenido')}}">Alquiler</a></p>
+										<p class="texto_dos"><a href="{{URL::to('Alquiler#ContenidoPrincipal')}}">Alquiler</a></p>
 									</div>
 								@else
 								<div class="contenedor_uno">
-										<p class="texto_uno"><a href="{{URL::to('Alquiler#contenido')}}">Alquiler</a></p>
+										<p class="texto_uno"><a href="{{URL::to('Alquiler#ContenidoPrincipal')}}">Alquiler</a></p>
 									</div>
 									<div class="contenedor_dos">
-										<p class="texto_dos"><a href="{{URL::to('Alquiler#contenido')}}">Alquiler</a></p>
+										<p class="texto_dos"><a href="{{URL::to('Alquiler#ContenidoPrincipal')}}">Alquiler</a></p>
 									</div>
 								@endif	
 									
@@ -210,19 +219,19 @@
 							</li> 
 							<li>
 								<div class="contenedor_general">
-								@if(Request::url() === 'http://localhost/grupomesaFinal/Contactenos'){{-- En el servidor hay q cambiar el url --}}
+								@if(Request::url() === 'http://ex000620.ferozo.com/Contactenos'){{-- En el servidor hay q cambiar el url --}}
 									<div class="contenedor_dos">
-										<p class="texto_uno"><a href="{{URL::to('/Contactenos#contenido')}}">Cont&aacute;ctenos</a></p>
+										<p class="texto_uno"><a href="{{URL::to('/Contactenos#ContenidoPrincipal')}}">Cont√°ctenos</a></p>
 									</div>
 									<div class="contenedor_dos">
-										<p class="texto_dos"><a href="{{URL::to('/Contactenos#contenido')}}">Cont&aacute;ctenos</a></p>
+										<p class="texto_dos"><a href="{{URL::to('/Contactenos#ContenidoPrincipal')}}">Cont√°ctenos</a></p>
 									</div>
 								@else
 									<div class="contenedor_uno">
-										<p class="texto_uno"><a href="{{URL::to('/Contactenos#contenido')}}">Cont&aacute;ctenos</a></p>
+										<p class="texto_uno"><a href="{{URL::to('/Contactenos#ContenidoPrincipal')}}">Cont√°ctenos</a></p>
 									</div>
 									<div class="contenedor_dos">
-										<p class="texto_dos"><a href="{{URL::to('/Contactenos#contenido')}}">Cont&aacute;ctenos</a></p>
+										<p class="texto_dos"><a href="{{URL::to('/Contactenos#ContenidoPrincipal')}}">Cont√°ctenos</a></p>
 									</div>	
 								@endif	
 								</div>
@@ -231,10 +240,10 @@
 								<div class="contenedor_general">
 								
 									<div class="contenedor_uno">
-										<p class="texto_uno"><a href="{{URL::to('/minibuscador#contenido')}}">Buscador</a></p>
+										<p class="texto_uno"><a href="{{URL::to('/minibuscador#ContenidoPrincipal')}}">Buscador</a></p>
 									</div>
 									<div class="contenedor_dos">
-										<p class="texto_dos"><a href="{{URL::to('/minibuscador#contenido')}}">Buscador</a></p>
+										<p class="texto_dos"><a href="{{URL::to('/minibuscador#ContenidoPrincipal')}}">Buscador</a></p>
 									</div>
 								</div>
 							</li>                                       
@@ -251,7 +260,7 @@
 		<section id="container" class="row">
 		<div class="hidden-xs col-sm-4 col-md-3 col-lg-3 kratos">
 			<div id="busqueda" class="testbox fixbus">
-				{{ Form::open(array('url' => 'buscadorpropiedad', 'method' => 'POST'), array('role' => 'form', 'class' => 'form-horizontal')) }}
+				{{ Form::open(array('id'=>'bus','name'=>'bus','url' => 'buscadorpropiedad#ContenidoPrincipal', 'method' => 'POST'), array('role' => 'form', 'class' => 'form-horizontal')) }}
 					<h3 style=" text-align:center; margin-top:0">B&#250;squeda</h3>
 					<div class="gender">
 						<input type="radio" value="Venta" id="Venta" name="venta" checked/>
@@ -281,7 +290,8 @@
 					<div class="input-group">          
 						<span class="input-group-addon"><label class="glyphicon glyphicon-home"></label></span>
 
-						<select class="form-control departamento" name="departamento">
+						<select class="form-control departamento" name="departamento" onclick="desactivar(this.value)">
+							<option value='Dep'>Todos</option>
 							@foreach($depto as $value)
 							<option value='{{$value->id}}'>{{$value->opcion}}</option>
 							@endforeach	
@@ -294,14 +304,16 @@
 					<div class="input-group">          
 						<span class="input-group-addon"><label class="glyphicon glyphicon-home"></label></span>
 						
-						<select class="form-control municipio select2" name="municipio" id="">				
+						<select class="form-control municipio select2" name="municipio" id="" disabled="disable" onclick="desactivar2(this.value)">
+						<option value='Mun'>Todos</option>				
 						</select>
 					</div>
 
 					<h5 class="titulos">Zona</h5>
 					<div class="input-group">          
 						<span class="input-group-addon"><label class="glyphicon glyphicon-home"></label></span>
-						<select class="form-control" name="zona" id="select3">
+						<select class="form-control" name="zona" id="select3" disabled="disable">
+						<option value='Zone'>Todos</option>
 
 						</select>
 					</div>        
@@ -310,8 +322,9 @@
 					<div class="input-group">          
 						<span class="input-group-addon"><label class="glyphicon glyphicon-home"></label></span>
 						<select  class="form-control" name="tipo" >
-							<option value="AlmacÈn">Almac&#233n</option>
-							<option value="Casa de HabitaciÛn">Casa de Habitaci&#243;n</option>
+							<option value="Todos">Todos</option>
+							<option value="Almac√©n">Almac&#233n</option>
+							<option value="Casa de Habitaci√≥n">Casa de Habitaci&#243;n</option>
 							<option value="Casa de Playa">Casa de Playa</option>
 							<option value="Condominio">Condominio</option>
 							<option value="Consultorio">Consultorio</option>
@@ -347,8 +360,11 @@
 			
 
 			<div class="col-xs-12 col-sm-8 col-lg-9">
-				<section id="contenido" class="row">
+			<div id="ContenidoPrincipal">
 				<br><br><br>
+			</div>
+				<section id="contenido" class="row">
+				
 				
 					@yield('contenido')
 					@yield('contactenos')
@@ -390,7 +406,7 @@
 								
 							</div>
 						</div>
-						<a href="{{  URL::to('VistaCasa/'. $value->id .'#contenido' ) }}" class="btn btn-small btn-primary" style="margin-left:1em !important">Ver Propiedad</a> 						
+						<a href="{{  URL::to('VistaCasa/'. $value->id .'#ContenidoPrincipal' ) }}" class="btn btn-small btn-primary" style="margin-left:1em !important">Ver Propiedad</a> 						
 					</div>
 
 
@@ -408,7 +424,7 @@
 
 				@foreach($propiedades as $value)
 					<?php $imagen3 = PropiedadImg::where('id_propiedad', '=', $value->id )->orderBy('id')->first(); ?> 
-					<div class=""col-xs-6 col-sm-4 col-md-2">
+					<div class="col-xs-6 col-sm-4 col-md-2">
 						<div class="tituloanuncio">
 							<h6 style="font-size: 13px"><strong>{{ $value->titulo }}</strong></h6>
 						</div>
@@ -422,7 +438,7 @@
 								
 							</div>
 						</div>
-						<a href="{{  URL::to('VistaCasa/'. $value->id .'#contenido' ) }}" class="btn btn-small btn-primary" style="margin-left:1em !important">Ver Propiedad</a> 						
+						<a href="{{  URL::to('VistaCasa/'. $value->id .'#ContenidoPrincipal' ) }}" class="btn btn-small btn-primary" style="margin-left:1em !important">Ver Propiedad</a> 						
 					</div>
 
 
@@ -433,6 +449,7 @@
 
 		</div><!--End Novedades-->
 
+<br>
 		<div class="social visible-lg visible-md hidden-xs hidden-sm">
 			<div class="icon-button-linkedin">
 				<a href="https://www.linkedin.com/in/grupomesa" target="_blank"><i class="fa fa-linkedin"></i></a>
@@ -449,7 +466,7 @@
 		</div>
 
 		<div id="footer">
-			<h4>© 2014 Grupo Mesa S.A, Todos los derechos Reservados</h4>
+			<h4>¬© 2014 Grupo Mesa S.A, Todos los derechos Reservados</h4>
 			<h4>Sistema Web Desarrollado por <a href="https://www.facebook.com/EngitechNicaragua?ref=hl">ENGITECH</a></h4>
 		</div>
 
@@ -477,6 +494,39 @@
 		}
 
 </script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-55536154-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<script>
+	function desactivar(v){ 
+if(v=='Dep'){
+	document.bus.municipio.disabled = true;
+	document.bus.zona.disabled = true;
+}else if(v!='Dep'){
+	document.bus.municipio.disabled = false;
+	document.bus.municipio.selectedIndex = "Mun";
+
+}
+}
+
+function desactivar2(v){
+	if (v=='Mun') {
+		document.bus.zona.disabled = true;
+	}else if(v!='Mun'){
+		document.bus.zona.disabled = false;
+		
+	}
+}
+</script> 
 
 		@yield('js')
 

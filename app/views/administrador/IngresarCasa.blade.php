@@ -36,7 +36,7 @@
 			</select>
 
 			<div class="row">
-				<div class="col-md-6 columnadg">
+				<div class="col-md-6">
 					<div class="divblocka">
 
 						{{ Form::label('tipoPropiedad', 'Tipo de Propiedad') }}
@@ -170,7 +170,10 @@
 		<div class="panel-body">
 			{{ Form::textarea('observaciones', null, array('placeholder' => 'Observaciones Privadas para el administrador y/o encargado de la propiedad.', 'class' => 'form-control')) }}
 		</div>
-	</div>	
+	</div>
+	
+	
+	{{ Form::submit('Registrar' , array('class'=> 'btn btn-primary')) }}	
 	
 	
 
@@ -185,12 +188,12 @@
 		<div class="panel-body">
 			{{ Form::label('pais', 'País') }}
 			<select class="form-control" name="pais">				
-				<option value="NI" selected=>Nicaragua</option>				
+				<option value="Nicaragua" selected=>Nicaragua</option>				
 			</select>
 			{{-- DEPARTAMETOS  --}}
 			{{ Form::label('depto', 'Departamento') }}
 			<?php $depto = DB::table('depto')->get();?>
-			<select class="form-control departamento" name="departamento">
+			<select class="form-control departamentoA" name="departamentoA">
 				@foreach($depto as $value)
 				<option value='{{$value->id}}'>{{$value->opcion}}</option>
 				@endforeach	
@@ -198,21 +201,21 @@
 
 			{{-- MUNICIPIOS --}}
 			{{ Form::label('Municipio', 'Municipio') }}
-			<select class="form-control municipio select2" name="municipio" id="">				
+			<select class="form-control municipioA selectM" name="municipioA" id="">				
 			</select>
 
 			{{-- zonas --}}
 			{{ Form::label('Zona', 'Zona') }} <a id="agregarzona" data-toggle="modal" data-target="#myModal" href="">(Agregar Zona)</a>		
-			<select class="form-control" name="zona" id="select3">
+			<select class="form-control" name="zona" id="selectZ">
 
 			</select>
 
 			{{-- MAPA --}}
-			{{ Form::label('direccion', 'Dirección General a mostrar al pùblico') }}
+			{{ Form::label('direccion', 'Dirección(Información Privada)') }}
 			
 			<div class="row">
 				<div class="col-md-8">
-					{{ Form::textarea('direccion', 'Managua', array('placeholder' => 'Dirección de la Propiedad,vista solo por el Administrador', 'class' => 'form-control', 'rows' => '4')) }}
+					{{ Form::textarea('direccion', '', array('placeholder' => 'Dirección de la Propiedad,vista solo por el Administrador', 'class' => 'form-control', 'rows' => '4')) }}
 				</div>
 				
 				<div class="col-md-4">
@@ -300,7 +303,7 @@
 
 <input type="hidden" name="id_usuario" id="id_usuario" value="{{Auth::user()->username}}">
 
-{{ Form::submit('Registrar' , array('class'=> 'btn btn-primary botonGuardar')) }}
+
 
 {{ Form::close() }}
 
@@ -321,7 +324,7 @@
 				{{-- DEPARTAMETOS  --}}
 				{{ Form::label('depto', 'Departamento') }}
 				<?php $depto = DB::table('depto')->get(); ?>
-				<select class="form-control departamento" name="departamento">
+				<select class="form-control departamentoA" name="departamentoA">
 					@foreach($depto as $value)
 					<option value='{{$value->id}}'>{{$value->opcion}}</option>
 					@endforeach	
@@ -329,7 +332,7 @@
 
 				{{-- MUNICIPIOS --}}
 				{{ Form::label('Municipio', 'Municipio') }}
-				<select class="form-control municipio select2" name="municipio" >				
+				<select class="form-control municipioA selectM" name="municipioA" >				
 				</select>
 
 				{{-- zonas --}}

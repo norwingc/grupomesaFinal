@@ -7,25 +7,26 @@
 @endif
 
 <div id="busqueda" class="testbox col-md-12">
-				{{ Form::open(array('url' => 'buscadorpropiedad', 'method' => 'POST'), array('role' => 'form', 'class' => 'form-horizontal')) }}
-					<h3 style=" text-align:center; margin-top:0">Búsqueda</h3>
+				{{ Form::open(array('id'=>'bus','name'=>'bus','url' => 'buscadorpropiedad#ContenidoPrincipal', 'method' => 'POST'), array('role' => 'form', 'class' => 'form-horizontal')) }}
+					<h3 style=" text-align:center; margin-top:0">B&#250;squeda</h3>
 					<div class="gender">
 						<input type="radio" value="Venta" id="Venta" name="venta" checked/>
 						<label for="Venta" id="lven">Venta</label>
 						<input type="radio" value="Alquiler" id="Alquiler" name="venta" />
 						<label for="Alquiler" >Alquiler</label>
+						<br>
 						<input type="radio" value="Venta y Alquiler" id="venta y alquiler" name="venta" />
 						<label for="Alquiler" >Venta y Alquiler</label>
 					</div>
 
 					<div class="input-group">
 						<span class="input-group-addon"><label class="glyphicon glyphicon-search"></label></span>
-						<input type="text" class="form-control" name="busqueda" placeholder="Búsqueda libre" />
+						<input type="text" class="form-control" name="busqueda" placeholder="B&#250;squeda libre" />
 					</div>
 
 					<div class="input-group">          
 						<span class="input-group-addon"><label class="glyphicon glyphicon-qrcode"></label></span>
-						<input type="text" class="form-control" name="codigo" placeholder="Código de Propiedad"/>
+						<input type="text" class="form-control" name="codigo" placeholder="C&#243digo de Propiedad"/>
 					</div>
 
 					<hr class="sepa">                     
@@ -36,7 +37,8 @@
 					<div class="input-group">          
 						<span class="input-group-addon"><label class="glyphicon glyphicon-home"></label></span>
 
-						<select class="form-control departamento" name="departamento">
+						<select class="form-control departamento" name="departamento" onclick="desactivar(this.value)">
+							<option value='Dep'>Todos</option>
 							@foreach($depto as $value)
 							<option value='{{$value->id}}'>{{$value->opcion}}</option>
 							@endforeach	
@@ -49,14 +51,16 @@
 					<div class="input-group">          
 						<span class="input-group-addon"><label class="glyphicon glyphicon-home"></label></span>
 						
-						<select class="form-control municipio select2" name="municipio" id="">				
+						<select class="form-control municipio select2" name="municipio" id="" disabled="disable" onclick="desactivar2(this.value)">
+						<option value='Mun'>Todos</option>				
 						</select>
 					</div>
 
 					<h5 class="titulos">Zona</h5>
 					<div class="input-group">          
 						<span class="input-group-addon"><label class="glyphicon glyphicon-home"></label></span>
-						<select class="form-control" name="zona" id="select3">
+						<select class="form-control" name="zona" id="select3" disabled="disable">
+						<option value='Zone'>Todos</option>
 
 						</select>
 					</div>        
@@ -65,8 +69,9 @@
 					<div class="input-group">          
 						<span class="input-group-addon"><label class="glyphicon glyphicon-home"></label></span>
 						<select  class="form-control" name="tipo" >
-							<option value="Almacén">Almacén</option>
-							<option value="Casa de Habitación">Casa de Habitación</option>
+							<option value="Todos">Todos</option>
+							<option value="Almacén">Almac&#233n</option>
+							<option value="Casa de Habitación">Casa de Habitaci&#243;n</option>
 							<option value="Casa de Playa">Casa de Playa</option>
 							<option value="Condominio">Condominio</option>
 							<option value="Consultorio">Consultorio</option>
@@ -74,7 +79,6 @@
 							<option value="Edificio">Edificio</option>
 							<option value="Finca">Finca</option>
 							<option value="Terreno">Terreno</option>
-							<option value="Finca">Finca</option>
 							<option value="Locales Comerciales">Locales Comerciales</option>
 							<option value="Quintas">Quintas</option>
 							<option value="Apartamentos Amoblados">Apartamentos Amoblados</option>

@@ -19,7 +19,7 @@ class PropiedadesImgController extends \BaseController {
 
 	     	$img = Image::make('upload/'. $file);
       	   //$img->resize(1280, 720); x si quiere cambiar el tamoño 
-			$img->insert('img/marca.png', 'bottom-right');
+			$img->insert('img/marca.png', 'center');
 			$img->save('upload/'. $file);
 
 		     		$banners->ruta = $file;
@@ -62,7 +62,7 @@ class PropiedadesImgController extends \BaseController {
 
 	     	$img = Image::make('upload/'. $file);
       	   //$img->resize(1280, 720); x si quiere cambiar el tamoño 
-			$img->insert('img/marca.png', 'bottom-right');
+			$img->insert('img/marca.png', 'center');
 			$img->save('upload/'. $file);
 
 			$baner->ruta = $file;

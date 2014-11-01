@@ -19,6 +19,8 @@ function main(){
 
 		$('.select2').html();
 		var template = "";
+		var aux = "Todos";
+		var aux1 = "Mun";
 
 		datsend = "id=" + id;
 
@@ -27,6 +29,11 @@ function main(){
 			url: 'cargarmunicipio',
 			data: datsend,
 			success : function(data){	
+
+			
+				template += "<option value='"+  aux  +"'>"+ aux  +"</option>";
+				$('#select2').html(template);
+
 				for(datos in data.municipio ){	
 
 					template += "<option value='"+  data.municipio[datos].id  +"'>"+ data.municipio[datos].opcion  +"</option>";
@@ -43,6 +50,43 @@ function main(){
 
 	});
 
+	$('.departamentoA').change(function(){
+
+		var id = $(this).val();
+
+		$('.selectM').html();
+		var template = "";
+		var aux = "Todos";
+		var aux1 = "Mun";
+
+		datsend = "id=" + id;
+
+		$.ajax({
+			type: 'POST',
+			url: 'cargarmunicipio',
+			data: datsend,
+			success : function(data){	
+
+			
+				
+
+				for(datos in data.municipio ){	
+
+					template += "<option value='"+  data.municipio[datos].id  +"'>"+ data.municipio[datos].opcion  +"</option>";
+					$('.selectM').html(template);
+
+				}
+
+			},
+			error: function(){
+				alert('error al guardar');	
+			}
+
+		});				
+
+	});
+
+
 	$('.municipio').change(function(){
 
 		var id = $(this).val();
@@ -51,6 +95,8 @@ function main(){
 
 
 		var template = "";
+		var aux = "Todos";
+		var aux1 = "Zone";
 
 		datsend = "id=" + id;
 
@@ -59,11 +105,54 @@ function main(){
 			url: 'cargarzona',
 			data: datsend,
 			success : function(data){	
+
+				template += "<option value='"+  aux1  +"'>"+ aux  +"</option>";
+				$('#select3').html(template);
+
 				for(datos in data.zona ){	
+					
 
 					template += "<option value='"+  data.zona[datos].opcion  +"'>"+ data.zona[datos].opcion  +"</option>";	
 					//alert(template);
 					$('#select3').html(template);
+
+				}
+
+			},
+			error: function(){
+				alert('error al guardar');	
+			}
+
+		});				
+
+	});
+
+	$('.municipioA').change(function(){
+
+		var id = $(this).val();
+
+		$('#selectZ').html();
+
+
+		var template = "";
+		var aux = "Todos";
+		var aux1 = "Zone";
+
+		datsend = "id=" + id;
+
+		$.ajax({
+			type: 'POST',
+			url: 'cargarzona',
+			data: datsend,
+			success : function(data){	
+
+
+				for(datos in data.zona ){	
+					
+
+					template += "<option value='"+  data.zona[datos].opcion  +"'>"+ data.zona[datos].opcion  +"</option>";	
+					//alert(template);
+					$('#selectZ').html(template);
 
 				}
 
@@ -183,11 +272,6 @@ function main(){
 /////////////////////////////////////////////////////////////////
 	
 ////////////////////////////////////////////////////////////////
-	$('#select3').change(function(){
-
-		$('#direccion').val($(this).val());
-
-	});
 
 
 }

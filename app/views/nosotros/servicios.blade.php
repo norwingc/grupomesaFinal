@@ -1,6 +1,7 @@
 @extends('templates.maintemplate')
 
 @section('servicios')
+
 	
 	<h4>¿Quiénes Somos?</h4>
 	<p id="quienes" class="parrafos">		
@@ -49,7 +50,7 @@
 			<p id="parrafopre">
 				Este servicio consiste en un proceso de preselección del personal, mediante procesos estrictos de; 
 				entrevistas, investigación de antecedentes, test psicométricos, psicológicos y de actitud, para 
-				seleccionar el perfil optimo del candidato que su empresa desea contratar. 
+				seleccionar el perfil óptimo del candidato que su empresa desea contratar. 
 			</p>
 		</div>
 		<div class="col-md-4">
@@ -67,16 +68,20 @@
 
 		<div class="col-md-6">
 			<div class="col-md-6">			
-				<p class="parrafoservicio">
+				<p style="margin-top:30%">
 				@foreach($serv as $value)
-				{{$value->servicios}}<br>
+				<ul class="ulServicios">
+					<li>{{$value->servicios}}</li>
+				</ul>
 				@endforeach
 				</p>
 			</div>
 			<div class="col-md-6">
-				<p class="parrafoservicio">
+				<p style="margin-top:30%">
 				@foreach($servi as $value)
-				{{$value->servicios}}<br>
+				<ul class="ulServicios">
+					<li>{{$value->servicios}}</li>
+				</ul>
 				@endforeach 
 				</p>
 			</div>
@@ -94,18 +99,22 @@
 		<?php $serv1 = DB::table('serv')->where('id', '<', 28 )->where('id','>',16)->get();?>
 		<?php $servi1 = DB::table('serv')->where('id', '>', 27 )->get();?>
 
-		<div class="col-md-7" id="wa">					
+		<div class="col-md-7">					
 			<div class="col-md-6">			
 				<p class="p2">
 				@foreach($serv1 as $value)
-				{{$value->servicios}}<br>
+				<ul class="ulServicios">
+					<li>{{$value->servicios}}</li>
+				</ul>
 				@endforeach
 				</p>
 			</div>
 			<div class="col-md-6">
 				<p class="p2">
 				@foreach($servi1 as $value)
-				{{$value->servicios}}<br>
+				<ul class="ulServicios">
+					<li>{{$value->servicios}}</li>
+				</ul>
 				@endforeach 
 				</p>
 			</div>

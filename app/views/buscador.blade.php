@@ -1,13 +1,15 @@
 @extends('templates.maintemplate')
 
 @section('buscador')
-        
-@if(Session::has('message'))
-<div class="alert alert-info">{{ Session::get('message') }}</div>
-@endif
+
 
 <div class="row">
 	<hr class='separadortitulo1'/>  
+
+@if($propiedades->count() == 0)
+<br><br>
+<div class="alert alert-info">No se encontro coincidencias con los parametros solicitados</div>
+@endif
 
   @foreach($propiedades as $value)
   <div class="col-md-4 vista" >
@@ -28,9 +30,10 @@
       <div class="content">
         <h2>{{$value->tipoanuncio}} de {{$value->tipopropiedad}}</h2>
         <p>{{ preg_replace($expresionregular, $reemplazo, $cadena) }}... </p>
-        <a href="{{URL::to('/VistaCasa/'. $value->id .'#contenido')}}" class="info">Ver Propiedad</a>
+       
       </div>
     </div>
+    <a href="{{  URL::to('VistaCasa/'. $value->id .'#ContenidoPrincipal' ) }}" class="btn btn-small btn-primary" style="margin-left:1em !important">Ver Propiedad</a>  
   </div>
 
   @endforeach

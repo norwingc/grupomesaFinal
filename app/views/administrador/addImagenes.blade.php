@@ -21,6 +21,7 @@
 	<br />
 </form>
 
+<a href="{{  URL::to('administrador/verPropiedades') }}" class="btn btn-small btn-primary" style="margin-left:1em !important">Finalizar</a>
 
 
 @stop

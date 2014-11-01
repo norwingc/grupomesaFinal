@@ -1,12 +1,12 @@
 @extends('templates.maintemplate')
 
 @section('contenido')
-        
+
 <div class="row">
 	<hr class='separadortitulo'/>  
   
   @foreach($propiedades as $value)
-  <div class="col-xs-6 col-sm-6 col-md-4 col-md-4 vista" >
+  <div class="col-xs-12 col-sm-6 col-md-4 col-md-4 vista" >
 
     <div class="tituloanuncio">
       <h4 style="text-align:center;"><strong>{{ $value->titulo }}</strong></h4>
@@ -28,7 +28,7 @@
         
       </div>
     </div>
-    	<a href="{{  URL::to('VistaCasa/'. $value->id .'#contenido' ) }}" class="btn btn-small btn-primary" style="margin-left:1em !important">Ver Propiedad</a>
+    	<a href="{{  URL::to('VistaCasa/'. $value->id .'#ContenidoPrincipal' ) }}" class="btn btn-small btn-primary" style="margin-left:1em !important">Ver Propiedad</a>
   </div>
 
   @endforeach

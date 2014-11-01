@@ -2,7 +2,6 @@
 
 @section('vistacasa')
 
-
 <div class="col-md-7">
 
 	<h2 class="titulovista" align="center">{{$propiedad->titulo}}</h2>
@@ -68,7 +67,7 @@
 	<div id="map" style="height:300px;"></div>
 
 </div>
-<br><br><br>
+<br><br>
 <div class="col-md-5">
 	
 	<h3 align="center">Información</h3>
@@ -101,7 +100,7 @@
 		@endif
 
 		
-		Código de Propiedad: {{$propiedad->codigo}} <br>
+		<strong>Código de Propiedad: {{$propiedad->codigo}}</strong><br>
 			
 			<?php $dep = DB::table('depto')->where('id','=',$propiedad->departamento)->first();?>
 			<?php $mun = DB::table('municipio')->where('id','=',$propiedad->municipio)->first();?>
@@ -121,7 +120,6 @@
 		
 	</div>
 
-	
 
 
 	<div class="row">
@@ -130,7 +128,7 @@
 		
 		<div class="col-md-5">
 
-			<ul>			
+			<ul class="casades">			
 				<?php 
 					$detail = explode(",", $propiedad->detallecasa);
 				?>
@@ -154,7 +152,11 @@
 <div class="row">
 <h3 align="center">Compartir</h3>
 	<hr>
-
+<span class='st_facebook_large' displayText='Facebook'></span>
+<span class='st_twitter_large' displayText='Tweet'></span>
+<span class='st_linkedin_large' displayText='LinkedIn'></span>
+<span class='st_googleplus_large' displayText='Google +'></span>
+<hr>
       <div class="socialtwitter">
         <a href="https://twitter.com/share" data-count="horizontal" class="twitter-share-button" data-via="grupomesagt" data-lang="es" data-hashtags="megustapropiedad">Twittear</a>
 
@@ -201,7 +203,7 @@
 
 </div>
 
-<button id="interesa" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal">Contactar al Asesor</button>	
+<button id="interesa" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Contactar al Asesor</button>	
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" style="margin-top:2em !important" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -329,6 +331,8 @@
 <script>
 	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 </script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "6554add6-04f5-48f4-addd-fc65271d2e55", doNotHash: false, doNotCopy: false, hashAddressBar: true});</script>
 
 @stop
 

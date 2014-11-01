@@ -54,7 +54,7 @@ Route::post('send/email', function(){
 
 	Mail::send('emails.welcome',  $data, function($message)
 	{
-		$message->to('aguadamuz@grupo-mesa.com', 'Cliente')->subject('Personas interesadas en propiedad');
+		$message->to('ventas@grupomesa.com', 'Cliente')->subject('Personas interesadas en propiedad');
 	});
 
 	Session::flash('message', 'Mensaje enviado');
@@ -67,7 +67,7 @@ Route::post('send/emailcasa', function(){
 
 	Mail::send('emails.welcome2',  $data, function($message)
 	{
-		$message->to('aguadamuz@grupo-mesa.com', 'Cliente')->subject('Personas interesadas en propiedad');
+		$message->to('ventas@grupomesa.com', 'Cliente')->subject('Personas interesadas en propiedad');
 	});
 
 	Session::flash('message', 'Mensaje enviado');
@@ -77,7 +77,58 @@ Route::post('send/emailcasa', function(){
 
 Route::post('buscadorpropiedad', array('uses'=> 'PropiedadesController@buscar'));
 
+Route::post('VistaCasa/cargarmunicipio', function(){	    
+		$id_dpto = $_POST['id'];
+		$municipio = DB::table('municipio')->where('relacion', '=', $id_dpto)->get();
+		return Response::json(array(
+			'municipio' =>     $municipio
+			));
 
+	});
+Route::post('VistaCasa/cargarzona', function(){	    
+		$id_zona = $_POST['id'];
+
+		$zona = DB::table('zona')->where('relacion', '=', $id_zona)->orderby('opcion')->get();
+		return Response::json(array(
+			'zona' =>     $zona
+			));
+	});	
+
+	Route::post('buscadorpropiedad/cargarzona', function(){	    
+		$id_zona = $_POST['id'];
+
+		$zona = DB::table('zona')->where('relacion', '=', $id_zona)->orderby('opcion')->get();
+		return Response::json(array(
+			'zona' =>     $zona
+			));
+	});	
+
+	Route::post('buscadorpropiedad/cargarmunicipio', function(){	    
+		$id_dpto = $_POST['id'];
+		$municipio = DB::table('municipio')->where('relacion', '=', $id_dpto)->get();
+		return Response::json(array(
+			'municipio' =>     $municipio
+			));
+
+	});
+
+Route::post('cargarmunicipio', function(){	    
+			$id_dpto = $_POST['id'];
+			$municipio = DB::table('municipio')->where('relacion', '=', $id_dpto)->get();
+			return Response::json(array(
+				'municipio' =>     $municipio
+				));
+
+		});
+
+		Route::post('cargarzona', function(){	    
+		$id_zona = $_POST['id'];
+
+		$zona = DB::table('zona')->where('relacion', '=', $id_zona)->orderby('opcion')->get();
+		return Response::json(array(
+			'zona' =>     $zona
+			));
+	});
 
 
 /*usuarios*/
@@ -180,6 +231,8 @@ Route::group(array('before' => 'auth'), function()
 
 	Route::post('administrador/propiedad/add', array('uses' => 'PropiedadesController@guardar'));// se registra el usuario en la BD
 
+	
+
 	Route::post('admin/cargarzona', function(){	    
 		$id_zona = $_POST['id'];
 
@@ -225,61 +278,15 @@ Route::group(array('before' => 'auth'), function()
 
 	});	
 
-	Route::post('cargarmunicipio', function(){	    
-		$id_dpto = $_POST['id'];
-		$municipio = DB::table('municipio')->where('relacion', '=', $id_dpto)->get();
-		return Response::json(array(
-			'municipio' =>     $municipio
-			));
+	
 
-	});
-
-	Route::post('VistaCasa/cargarmunicipio', function(){	    
-		$id_dpto = $_POST['id'];
-		$municipio = DB::table('municipio')->where('relacion', '=', $id_dpto)->get();
-		return Response::json(array(
-			'municipio' =>     $municipio
-			));
-
-	});
+	
 
 	Route::post('administrador/zone', array('uses' => 'ZonasController@guardar'));
 
-	Route::post('cargarzona', function(){	    
-		$id_zona = $_POST['id'];
+	
 
-		$zona = DB::table('zona')->where('relacion', '=', $id_zona)->get();
-		return Response::json(array(
-			'zona' =>     $zona
-			));
-	});	
-
-	Route::post('VistaCasa/cargarzona', function(){	    
-		$id_zona = $_POST['id'];
-
-		$zona = DB::table('zona')->where('relacion', '=', $id_zona)->get();
-		return Response::json(array(
-			'zona' =>     $zona
-			));
-	});	
-
-	Route::post('buscadorpropiedad/cargarzona', function(){	    
-		$id_zona = $_POST['id'];
-
-		$zona = DB::table('zona')->where('relacion', '=', $id_zona)->get();
-		return Response::json(array(
-			'zona' =>     $zona
-			));
-	});	
-
-	Route::post('buscadorpropiedad/cargarmunicipio', function(){	    
-		$id_dpto = $_POST['id'];
-		$municipio = DB::table('municipio')->where('relacion', '=', $id_dpto)->get();
-		return Response::json(array(
-			'municipio' =>     $municipio
-			));
-
-	});
+	
 
 
 	Route::post('admin/getpropietario', function(){	    
@@ -589,7 +596,7 @@ Route::post('admin/agregarImagen/upload', function()
 
 		$img = Image::make('upload/'. $ultimo->last()->titulo . $file->getClientOriginalName());
       	//$img->resize(800, 600); x si quiere cambiar el tamoño 
-       $img->insert('img/marca.png', 'bottom-right');
+       $img->insert('img/marca.png', 'margin:0 auto');
         $img->save('upload/'. $ultimo->last()->titulo . $file->getClientOriginalName());
 
       

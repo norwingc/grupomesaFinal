@@ -15,6 +15,10 @@
    width: 100%;
    height: auto;
 }
+.viewmain img{
+   width: 100%;
+   height: auto;
+}
 
 /*Mascara*/
 .view .mask,.view .content {
@@ -305,4 +309,31 @@
    -o-transition-delay: 0.5s;
    -ms-transition-delay: 0.5s;
    transition-delay: 0.5s;
+}
+@media screen and (max-width: 768px) {
+/*Animacion titulo*/
+.view-second h2 {
+   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+   background: transparent;
+   margin: 10px 10px 0px 10px;
+   font-size: 13px;
+   -webkit-transform: translate(200px, -220px);
+   -moz-transform: translate(200px, -220px);
+   -o-transform: translate(200px, -200px);
+   -ms-transform: translate(200px, -220px);
+   transform: translate(200px, -220px);
+   -webkit-transition: all 0.2s ease-in-out;
+   -moz-transition: all 0.2s ease-in-out;
+   -o-transition: all 0.2s ease-in-out;
+   -ms-transition: all 0.2s ease-in-out;
+   transition: all 0.2s ease-in-out;
+}
+
+/*Animacion titulo*/
+.content p{
+   padding-top: 1em;
+}
+
+
+
 }

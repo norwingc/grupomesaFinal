@@ -55,9 +55,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'grupomesa',
-			'username'  => 'root',
-			'password'  => '',
+			'database'  => 'ex000620_grupomesa',
+			'username'  => 'ex000620',
+			'password'  => 'GUwonuno27',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

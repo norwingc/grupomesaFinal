@@ -11,13 +11,14 @@
 			if ($this->validateForm(Input::all()) === true) {
 				$zona = new Zona();
 				$zona->opcion = Input::get('zona');
-				$zona->relacion = Input::get('municipio');
+				$zona->relacion = Input::get('municipioA');
 
 				$zona->save();
 
 				if($zona->save()){
 					Session::flash('message', 'Zona agregada.');
-					return Redirect::to('admin/formulario');
+					return Redirect::back();
+
 				}
 			}else{
 

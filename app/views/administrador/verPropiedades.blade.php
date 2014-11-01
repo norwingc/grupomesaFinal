@@ -21,7 +21,7 @@
 			<td class="centrado">Propiedad</td>
 
 			@if(Auth::user()->role_id == 0)
-				<td class="centrado">User</td>
+				<td class="centrado col-user">User</td>
 			@endif
 
 			<td class="centrado" >Acciones</td>
@@ -34,6 +34,7 @@
 					$depto = DB::table('depto')->where('id', $value->departamento)->first();
 					$municipio = DB::table('municipio')->where('id', $value->municipio)->first();
 					$img = DB::table('propiedades_img')->where('id_propiedad', $value->id)->first();
+					$usar = DB::table('usuarios')->where('username', $value->id_usuario)->first();
 				?>
 			<tr>
 
@@ -76,7 +77,7 @@
 				
 
 				@if(Auth::user()->role_id == 0)
-					<td style="text-align:center;">{{ $value->id_usuario }}</td>			
+					<td style="text-align:center;">{{$usar->nombre}}</td>			
 				@endif
 
 				<td style="text-align:center;">

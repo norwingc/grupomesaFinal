@@ -31,8 +31,8 @@
 				$propiedad->estratos = Input::get('estratos');
 				$propiedad->descripcion = Input::get('descripcion');
 				$propiedad->pais = Input::get('pais');
-				$propiedad->departamento = Input::get('departamento');
-				$propiedad->municipio = Input::get('municipio');
+				$propiedad->departamento = Input::get('departamentoA');
+				$propiedad->municipio = Input::get('municipioA');
 				$propiedad->zona = Input::get('zona');
 				$propiedad->direccion = Input::get('direccion');
 				$propiedad->observaciones = Input::get('observaciones');				
@@ -81,7 +81,7 @@
 		}
 
 		public function show($id){
-		
+
 			$propiedad = new Propiedad();
 			
 			$propiedad = propiedad::find($id);
@@ -98,32 +98,32 @@
 			$propiedad = Propiedad::find($id);
 
 			if($propiedad->estado == 0)	
-			$propiedad->estado = 1;
+				$propiedad->estado = 1;
 			else
-			$propiedad->estado = 0;	
+				$propiedad->estado = 0;	
 
 
 			$propiedad->save();				
-				
+
 			return Redirect::back();
-		
-	}
-public function detalle($id){
+
+		}
+		public function detalle($id){
 			$propiedad = Propiedad::find($id);
 			return View::make('administrador.detallePropiedad')->with('propiedad', $propiedad);
 		}
 
 
-	public function showupdate($id){
+		public function showupdate($id){
 			$propiedad = Propiedad::find($id);
 			return View::make('administrador.modPropiedades')->with('propiedad', $propiedad);
 		}
 
 
-	public function update($id){
+		public function update($id){
 			
 			$propiedad = Propiedad::find($id);
-			if($this->validateFormUp(Input::all()) === true){		
+			if($this->validateFormsUp(Input::all()) === true){		
 
 				$propiedad->titulo = Input::get('titulo');
 				$propiedad->estado = Input::get('estado');
@@ -146,8 +146,8 @@ public function detalle($id){
 				$propiedad->estratos = Input::get('estratos');
 				$propiedad->descripcion = Input::get('descripcion');
 				$propiedad->pais = Input::get('pais');
-				$propiedad->departamento = Input::get('departamento');
-				$propiedad->municipio = Input::get('municipio');
+				$propiedad->departamento = Input::get('departamentoA');
+				$propiedad->municipio = Input::get('municipioA');
 				$propiedad->zona = Input::get('zona');
 				$propiedad->direccion = Input::get('direccion');
 				$propiedad->observaciones = Input::get('observaciones');				
@@ -191,160 +191,394 @@ public function detalle($id){
 		}
 
 
-	public function buscar(){
+		public function buscar(){
 
-		$bl = Input::get('busqueda');
-		$codigo = Input::get('codigo');
-		$departamento = Input::get('departamento');
-		$municipio = Input::get('municipio');
-		$zona = Input::get('zona');
-		$tipo = Input::get('tipo');
-		$desde = Input::get('desde');
-		$hasta = Input::get('hasta');
-		$venta = Input::get('venta');
-		$alquiler = Input::get('alquiler');
-		
+			$bl = Input::get('busqueda');
+			$codigo = Input::get('codigo');
+			$departamento = Input::get('departamento');
+			$municipio = Input::get('municipio');
+			$zona = Input::get('zona');
+			$tipo = Input::get('tipo');
+			$desde = Input::get('desde');
+			$hasta = Input::get('hasta');
+			$venta = Input::get('venta');
+			$alquiler = Input::get('alquiler');
 
 
-		if($codigo != ''){
 
-			$resultado = Propiedad::where('codigo', '=', ''.$codigo.'')->where('estado','=','1')->get();
+			if($desde == null){
+				$desde=0;
+			}
 
-		}else if($codigo == '' && $bl !=''){
+			if($hasta == null){
+				$hasta=999999999999999;
+			}
 
-			
-			$resultado = '';
-			$resultado = Propiedad::where('titulo','like','%'.$bl.'%')
-			->Where('estado', '=', '1')->paginate(12);
 
-		}else {
+		 if($codigo != ''){
+
+				$resultado = Propiedad::where('codigo', '=', ''.$codigo.'')->where('estado','=','1')->get();
+
+				return View::make('buscador')->with('propiedades', $resultado);
+
+			}else if($codigo == '' && $bl !=''){
+
+
+				$resultado = '';
+				$resultado = Propiedad::where('titulo','like','%'.$bl.'%')
+				->Where('estado', '=', '1')->get();
+
+				return View::make('buscador')->with('propiedades', $resultado);
+
+			}else{
 
 
 			// Session::flash('message', 'entro '.$departamento. ' '.$municipio.' '.$zona.' '.$tipo.' '.$venta);
 
 
-			if($venta=='Venta'){
-			
-			$resultado = Propiedad::where('departamento', '=', ''.$departamento.'')
-			->where('municipio', 'like', '%'.$municipio.'%')
-			->where('zona', 'like', '%'.$zona.'%')
-			->where('tipopropiedad', '=', ''.$tipo.'')
-			->where('tipoanuncio', '=', ''.$venta.'')
-			->where('estado', '=', '1')
-			->whereBetween('precioventa',array($desde,$hasta))->get();
+				if($venta=='Venta'){
+					if ($departamento == 'Dep') {
+						if ($tipo == 'Todos') {
+							$resultado = Propiedad::where('estado', '=', '1')
+							->where('tipoanuncio', '=', 'Venta')
+							->whereBetween('precioventa', array(''.$desde.'', ''.$hasta.''))							
+							->get();
 
-		}else if($venta=='Alquiler'){
+						}else{
 
-			$resultado = Propiedad::where('departamento', '=', ''.$departamento.'')
-			->where('municipio', 'like', '%'.$municipio.'%')
-			->where('zona', 'like', '%'.$zona.'%')
-			->where('tipopropiedad', '=', ''.$tipo.'')
-			->where('tipoanuncio', '=', ''.$venta.'')
-			->where('estado', '=', '1')
-			->whereBetween('precioalquiler',array($desde,$hasta))->get();
+							$resultado = Propiedad::where('estado', '=', '1')
+							->where('tipoanuncio', '=', 'Venta')
+							->where('tipopropiedad', '=', ''.$tipo.'')
+							->whereBetween('precioventa', array(''.$desde.'', ''.$hasta.''))
+							->get();
+						}
 
-		}else{
-			$resultado = Propiedad::where('departamento', '=', ''.$departamento.'')
-			->where('municipio', 'like', '%'.$municipio.'%')
-			->where('zona', 'like', '%'.$zona.'%')
-			->where('tipopropiedad', '=', ''.$tipo.'')
-			->where('tipoanuncio', '=', ''.$venta.'')
-			->where('estado', '=', '1')
-			->whereBetween('precioalquiler',array($desde,$hasta))
-			->whereBetween('precioventa',array($desde,$hasta))->get();
-		}
-			
-		}
-          return View::make('buscador')->with('propiedades', $resultado);
+					}else if($departamento != 'Dep'){
+						if ($tipo != 'Todos') {
+							$resultado = Propiedad::where('departamento', '=', ''.$departamento.'')
+							->where('tipoanuncio', '=', 'Venta')
+							->where('tipopropiedad', '=', ''.$tipo.'')
+							->whereBetween('precioventa', array(''.$desde.'', ''.$hasta.''))
+							->where('estado', '=', '1')
+							->get();
 
-		
-	}
+						}else{
+							$resultado = Propiedad::where('departamento', '=', ''.$departamento.'')
+							->where('tipoanuncio', '=', 'Venta')
+							->where('tipopropiedad', '=', ''.$tipo.'')
+							->whereBetween('precioventa', array(''.$desde.'', ''.$hasta.''))
+							->where('estado', '=', '1')
+							->get();
 
-		private function validateFormUp($inputs = array()){
-			$rules = array(
-				'titulo' => 'required|max:60|min:10',
-				'estado' => 'required',
-				'tipopropiedad' => 'required',
-				'precioventa'=> 'numeric',
-				'precioalquiler' => 'numeric',
+						}
+					}else if ($municipio != 'Mun') {
+						if ($tipo == 'Todos') {
+							$resultado = Propiedad::where('municipio', '=', ''.$municipio.'')
+							->where('tipoanuncio', '=', 'Venta')
+							->whereBetween('precioventa', array(''.$desde.'', ''.$hasta.''))
+							->where('estado', '=', '1')
+							->whereBetween('precioventa', array(''.$desde.'', ''.$hasta.''))
+							->get();
+
+						}else{
+							$resultado = Propiedad::where('municipio', '=', ''.$municipio.'')
+							->where('tipoanuncio', '=', 'Venta')
+							->where('tipopropiedad', '=', ''.$tipo.'')
+							->whereBetween('precioventa', array(''.$desde.'', ''.$hasta.''))
+							->where('estado', '=', '1')
+							->get();
+
+						}
+					}else if ($zona != 'Zone') {
+						if ($tipo == 'Todos') {
+							$resultado = Propiedad::where('zona', '=', ''.$zona.'')
+							->where('tipoanuncio', '=', 'Venta')
+							->whereBetween('precioventa', array(''.$desde.'', ''.$hasta.''))
+							->where('estado', '=', '1')
+							->get();
+
+						}else{
+							$resultado = Propiedad::where('zona', '=', ''.$zona.'')
+							->where('tipoanuncio', '=', 'Venta')
+							->where('tipopropiedad', '=', ''.$tipo.'')
+							->whereBetween('precioventa', array(''.$desde.'', ''.$hasta.''))
+							->where('estado', '=', '1')
+							->get();
+						}
+
+
+						}else{
+							$resultado = Propiedad::where('departamento', '=', ''.$departamento.'')
+							->where('tipoanuncio', '=', 'Venta')
+							->where('tipopropiedad', '=', ''.$tipo.'')
+							->whereBetween('precioventa', array(''.$desde.'', ''.$hasta.''))
+							->where('estado', '=', '1')
+							->get();
+						}
+
+
+
+
+				// }else{
+				// 	$resultado = Propiedad::where('departamento', '=', ''.$departamento.'')
+				// 	->where('municipio', 'like', '%'.$municipio.'%')
+				// 	->where('zona', 'like', '%'.$zona.'%')
+				// 	->where('tipopropiedad', '=', ''.$tipo.'')
+				// 	->where('tipoanuncio', '=', ''.$venta.'')
+				// 	->where('estado', '=', '1')
+				// 	->whereBetween('precioventa',array($desde,$hasta))->get();
+				// }
+
+
+
+						}else if($venta=='Alquiler'){
+
+							if ($departamento == 'Dep') {
+								if ($tipo == 'Todos') {
+									$resultado = Propiedad::where('estado', '=', '1')
+									->whereBetween('precioalquiler', array(''.$desde.'', ''.$hasta.''))
+									->where('tipoanuncio', '=', 'Alquiler')
+									->get();
+								}else{
+									$resultado = Propiedad::where('estado', '=', '1')
+									->where('tipoanuncio', '=', 'Alquiler')
+									->where('tipopropiedad', '=', ''.$tipo.'')
+									->whereBetween('precioalquiler', array(''.$desde.'', ''.$hasta.''))
+									->get();
+								}
+							}else if($departamento != 'Dep'){
+								if ($tipo == 'Todos') {
+									$resultado = Propiedad::where('departamento', '=', ''.$departamento.'')
+									->where('tipoanuncio', '=', 'Alquiler')
+									->whereBetween('precioalquiler', array(''.$desde.'', ''.$hasta.''))
+									->where('estado', '=', '1')
+									->get();
+								}else{
+									$resultado = Propiedad::where('departamento', '=', ''.$departamento.'')
+									->where('tipoanuncio', '=', 'Alquiler')
+									->where('tipopropiedad', '=', ''.$tipo.'')
+									->whereBetween('precioalquiler', array(''.$desde.'', ''.$hasta.''))
+									->where('estado', '=', '1')
+									->get();
+								}
+							}else if ($municipio != 'Mun') {
+								if ($tipo == 'Todos') {
+									$resultado = Propiedad::where('municipio', '=', ''.$municipio.'')
+									->where('tipoanuncio', '=', 'Alquiler')
+									->whereBetween('precioalquiler', array(''.$desde.'', ''.$hasta.''))
+									->where('estado', '=', '1')
+									->get();
+								}else{
+									$resultado = Propiedad::where('municipio', '=', ''.$municipio.'')
+									->where('tipoanuncio', '=', 'Alquiler')
+									->where('tipopropiedad', '=', ''.$tipo.'')
+									->whereBetween('precioalquiler', array(''.$desde.'', ''.$hasta.''))
+									->where('estado', '=', '1')
+									->get();
+								}
+							}else if ($zona != 'Zone') {
+								if ($tipo == 'Todos') {
+									$resultado = Propiedad::where('zona', '=', ''.$zona.'')
+									->where('tipoanuncio', '=', 'Alquiler')
+									->where('estado', '=', '1')
+									->whereBetween('precioalquiler', array(''.$desde.'', ''.$hasta.''))
+									->get();
+								}else{
+									$resultado = Propiedad::where('zona', '=', ''.$zona.'')
+									->where('tipoanuncio', '=', 'Alquiler')
+									->whereBetween('precioalquiler', array(''.$desde.'', ''.$hasta.''))
+									->where('tipopropiedad', '=', ''.$tipo.'')
+									->where('estado', '=', '1')
+									->get();
+								}
+
+							}
+
+
 							
-				
-				'moneda' => 'required',
-				'estadofisico'=> 'required',
-				'anocontruccion' => 'required|numeric|min:1900',
-				'areautil'=> 'required|numeric',
-				'areaterreno'=> 'required|numeric',
-				'estratos'=> 'required',
-				'descripcion'=> 'required|max:1000',
-				'pais'=> 'required',
-				'departamento'=> 'required',
-				'municipio'=> 'required',
-				'zona'=> 'required',
-				'direccion'=> 'required',
-				
-				'lat'=> 'required',
-				'lon'=> 'required',
-				'id_usuario'=> 'required',
-				'observaciones' => 'required|max:250',
-				'id_usuario'=> 'required'
-		
-				);
-			$message = array(
-				'required' => 'el campo :attribute es requerido',
-				'unique' => 'el titulo ya existe'
-				);
+				// }else{
 
-			$validation = Validator::make($inputs, $rules, $message);
+				// 	$resultado = Propiedad::where('departamento', '=', ''.$departamento.'')
+				// 	->where('municipio', 'like', '%'.$municipio.'%')
+				// 	->where('zona', 'like', '%'.$zona.'%')
+				// 	->where('tipopropiedad', '=', ''.$tipo.'')
+				// 	->where('tipoanuncio', '=', ''.$venta.'')
+				// 	->where('estado', '=', '1')
+				// 	->get();
+				// }
 
-			if($validation->fails()){
-				return $validation;
-			}else{
-				return true;
+
+						}else{
+							if ($departamento == 'Dep') {
+								if ($tipo == 'Todos') {
+									$resultado = Propiedad::where('estado', '=', '1')
+									->where('tipoanuncio', '=', 'Venta y Alquiler')
+									->whereBetween('precioalquiler', array(''.$desde.'', ''.$hasta.''))
+									->whereBetween('precioventa', array(''.$desde.'', ''.$hasta.''))
+									->get();
+								}else{
+									$resultado = Propiedad::where('estado', '=', '1')
+									->where('tipoanuncio', '=', 'Venta y Alquiler')
+									->whereBetween('precioalquiler', array(''.$desde.'', ''.$hasta.''))
+									->whereBetween('precioventa', array(''.$desde.'', ''.$hasta.''))
+									->where('tipopropiedad', '=', ''.$tipo.'')
+									->get();
+								}
+							}else if($departamento != 'Dep'){
+								if ($tipo == 'Todos') {
+									$resultado = Propiedad::where('departamento', '=', ''.$departamento.'')
+									->where('tipoanuncio', '=', 'Venta y Alquiler')
+									->whereBetween('precioalquiler', array(''.$desde.'', ''.$hasta.''))
+									->whereBetween('precioventa', array(''.$desde.'', ''.$hasta.''))
+									->where('estado', '=', '1')
+									->get();
+								}else{
+									$resultado = Propiedad::where('departamento', '=', ''.$departamento.'')
+									->where('tipoanuncio', '=', 'Venta y Alquiler')
+									->whereBetween('precioalquiler', array(''.$desde.'', ''.$hasta.''))
+									->whereBetween('precioventa', array(''.$desde.'', ''.$hasta.''))
+									->where('tipopropiedad', '=', ''.$tipo.'')
+									->where('estado', '=', '1')
+									->get();
+								}
+							}else if ($municipio != 'Mun') {
+								if ($tipo == 'Todos') {
+									$resultado = Propiedad::where('municipio', '=', ''.$municipio.'')
+									->where('tipoanuncio', '=', 'Venta y Alquiler')
+									->whereBetween('precioalquiler', array(''.$desde.'', ''.$hasta.''))
+									->whereBetween('precioventa', array(''.$desde.'', ''.$hasta.''))
+									->where('estado', '=', '1')
+									->get();
+								}else{
+									$resultado = Propiedad::where('municipio', '=', ''.$municipio.'')
+									->where('tipoanuncio', '=', 'Venta y Alquiler')
+									->where('tipopropiedad', '=', ''.$tipo.'')
+									->whereBetween('precioalquiler', array(''.$desde.'', ''.$hasta.''))
+									->whereBetween('precioventa', array(''.$desde.'', ''.$hasta.''))
+									->where('estado', '=', '1')
+									->get();
+								}
+							}else if ($zona != 'Zone') {
+
+								if ($tipo == 'Todos') {
+									$resultado = Propiedad::where('zona', '=', ''.$zona.'')
+									->where('tipoanuncio', '=', 'Venta y Alquiler')
+									->where('estado', '=', '1')
+									->whereBetween('precioalquiler', array(''.$desde.'', ''.$hasta.''))
+									->whereBetween('precioventa', array(''.$desde.'', ''.$hasta.''))
+									->get();
+								}else{
+									$resultado = Propiedad::where('zona', '=', ''.$zona.'')
+									->where('tipoanuncio', '=', 'Venta y Alquiler')
+									->whereBetween('precioalquiler', array(''.$desde.'', ''.$hasta.''))
+									->whereBetween('precioventa', array(''.$desde.'', ''.$hasta.''))
+									->where('tipopropiedad', '=', ''.$tipo.'')
+									->where('estado', '=', '1')
+									->get();
+								}
+
+
+							}
+						}
+
+				
+
+
+					
+				
+
+				return View::make('buscador')->with('propiedades', $resultado);
+
+
 			}
+
 		}
 
+			private function validateFormsUp($inputs = array()){
+				$rules = array(
+					'titulo' => 'required|max:60|min:10',
+					'estado' => 'required',
+					'tipopropiedad' => 'required',
+					'precioventa'=> 'numeric',
+					'precioalquiler' => 'numeric',
 
-		private function validateForm($inputs = array()){
-			$rules = array(
-				'titulo' => 'required|max:60|min:10',
-				'estado' => 'required',
-				'tipopropiedad' => 'required',
-				'precioventa'=> 'numeric',
-				'precioalquiler' => 'numeric',
-								
-				
-				'moneda' => 'required',
-				'estadofisico'=> 'required',
-				'anocontruccion' => 'required|numeric|min:1900',
-				'areautil'=> 'required|numeric',
-				'areaterreno'=> 'required|numeric',
-				'estratos'=> 'required',
-				'descripcion'=> 'required|max:1000',
-				'pais'=> 'required',
-				'departamento'=> 'required',
-				'municipio'=> 'required',
-				'zona'=> 'required',
-				'direccion'=> 'required',
-				
-				'lat'=> 'required',
-				'lon'=> 'required',
-				'id_usuario'=> 'required',
-				'observaciones' => 'required|max:250',
-				'id_usuario'=> 'required'
-		
-				);
-			$message = array(
-				'required' => 'el campo :attribute es requerido',
-				'unique' => 'el titulo ya existe'
-				);
 
-			$validation = Validator::make($inputs, $rules, $message);
+					'moneda' => 'required',
+					'estadofisico'=> 'required',
+					'anocontruccion' => 'required|numeric|min:1900',
+					'areautil'=> 'required|numeric',
+					'areaterreno'=> 'required|numeric',
+					'estratos'=> 'required',
+					'descripcion'=> 'required|max:1000',
+					'pais'=> 'required',
+					'departamentoA'=> 'required',
+					'municipioA'=> 'required',
+					'zona'=> 'required',
+					'direccion'=> 'required',
 
-			if($validation->fails()){
-				return $validation;
-			}else{
-				return true;
+					'lat'=> 'required',
+					'lon'=> 'required',
+					'id_usuario'=> 'required',
+					'observaciones' => 'max:250',
+					'id_usuario'=> 'required'
+
+					);
+				$message = array(
+					'required' => 'el campo :attribute es requerido',
+					'unique' => 'el titulo ya existe'
+					);
+
+				$validation = Validator::make($inputs, $rules, $message);
+
+				if($validation->fails()){
+					return $validation;
+				}else{
+					return true;
+				}
+			}
+
+
+			private function validateForm($inputs = array()){
+				$rules = array(
+					'titulo' => 'required|max:60|min:10',
+					'estado' => 'required',
+					'tipopropiedad' => 'required',
+					'precioventa'=> 'numeric',
+					'precioalquiler' => 'numeric',
+
+
+					'moneda' => 'required',
+					'estadofisico'=> 'required',
+					'anocontruccion' => 'required|numeric|min:1900',
+					'areautil'=> 'required|numeric',
+					'areaterreno'=> 'required|numeric',
+					'estratos'=> 'required',
+					'descripcion'=> 'required|max:1000',
+					'pais'=> 'required',
+					'departamentoA'=> 'required',
+					'municipioA'=> 'required',
+					'zona'=> 'required',
+					'direccion'=> 'required',
+
+					'lat'=> 'required',
+					'lon'=> 'required',
+					'id_usuario'=> 'required',
+					'observaciones' => 'max:250',
+					'id_usuario'=> 'required'
+
+					);
+				$message = array(
+					'required' => 'el campo :attribute es requerido',
+					'unique' => 'el titulo ya existe'
+					);
+
+				$validation = Validator::make($inputs, $rules, $message);
+
+				if($validation->fails()){
+					return $validation;
+				}else{
+					return true;
+				}
 			}
 		}
-	}
-	?>
+		?>

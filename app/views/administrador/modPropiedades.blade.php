@@ -50,7 +50,7 @@
 			</select>
 
 			<div class="row">
-				<div class="col-md-6 columnadg">
+				<div class="col-md-6">
 					<div class="divblocka">
 
 						{{ Form::label('tipoPropiedad', 'Tipo de Propiedad') }}
@@ -640,6 +640,7 @@
 	</div>	
 	
 	
+{{ Form::submit('Guardar Cambios' , array('class'=> 'btn btn-primary')) }}
 
 </div>
 
@@ -657,7 +658,7 @@
 			{{-- DEPARTAMETOS  --}}
 			{{ Form::label('depto', 'Departamento') }}
 			<?php $depto = DB::table('depto')->get();?>
-			<select class="form-control departamento" name="departamento">
+			<select class="form-control departamentoA" name="departamentoA">
 				@foreach($depto as $value)
 				<option value='{{$value->id}}'>{{$value->opcion}}</option>
 				@endforeach	
@@ -665,23 +666,23 @@
 
 			{{-- MUNICIPIOS --}}
 			{{ Form::label('Municipio', 'Municipio') }}
-			<select class="form-control municipio select2" name="municipio" id="">				
+			<select class="form-control municipioA selectM" name="municipioA" id="">				
 			</select>
 
 			{{-- zonas --}}
 			{{ Form::label('Zona', 'Zona') }} <a id="agregarzona" data-toggle="modal" data-target="#myModal" href="">(Agregar Zona)</a>		
-			<select class="form-control" name="zona" id="select3">
+			<select class="form-control" name="zona" id="selectZ">
 
 			</select>
 
 			{{-- MAPA --}}
-			{{ Form::label('direccion', 'Dirección General a mostrar al pùblico') }}
+			{{ Form::label('direccion', 'Dirección(Información Privada)') }}
 			
 			<div class="input-group row">
-				<div class="col-md-12">
-					{{ Form::text('direccion', $propiedad->direccion, array('placeholder' => 'Dirección de la Propiedad,vista solo por el Administrador', 'class' => 'form-control')) }}
+				<div class="col-md-8">
+					{{ Form::textarea('direccion', $propiedad->direccion, array('placeholder' => 'Dirección de la Propiedad,vista solo por el Administrador', 'rows' => '4', 'class' => 'form-control')) }}
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-4">
 					<button class="btn btn-primary" type="button" id="pasar">Pasar al mapa</button>	
 					{{-- para que les funcione la funcion de arrastrar el chinche primero tienen que dar click a pasar al mapa --}}
 				</div>
@@ -1086,7 +1087,6 @@
 
 
 
-{{ Form::submit('Modificar' , array('class'=> 'btn btn-primary')) }}
 
 {{ Form::close() }}
 
@@ -1107,7 +1107,7 @@
 				{{-- DEPARTAMETOS  --}}
 				{{ Form::label('depto', 'Departamento') }}
 				<?php $depto = DB::table('depto')->get(); ?>
-				<select class="form-control departamento" name="departamento">
+				<select class="form-control departamentoA" name="departamentoA">
 					@foreach($depto as $value)
 					<option value='{{$value->id}}'>{{$value->opcion}}</option>
 					@endforeach	
@@ -1115,7 +1115,7 @@
 
 				{{-- MUNICIPIOS --}}
 				{{ Form::label('Municipio', 'Municipio') }}
-				<select class="form-control municipio select2" name="municipio" >				
+				<select class="form-control municipioA selectM" name="municipioA" >				
 				</select>
 
 				{{-- zonas --}}
