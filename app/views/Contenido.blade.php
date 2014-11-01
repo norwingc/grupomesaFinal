@@ -1,5 +1,13 @@
 @extends('templates.maintemplate')
 
+@section('imgfacebook') 
+
+  <meta property="og:image" content="{{ asset('img/logo.png') }}">
+  <meta property="og:image:type" content="image/JPG">
+  <meta property="og:url" content="{{Request::url()}}" />
+
+@stop
+
 @section('contenido')
 
 <div id="vcasas">

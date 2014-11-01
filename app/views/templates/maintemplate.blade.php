@@ -10,15 +10,16 @@
 	<link rel="shortcut icon" href="{{asset ('img/logo.png') }}" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="content-type" content="text/html"/>
+
+
 	<!-- Open Graph data -->
 	<meta property="og:title" content="Grupo M.E.S.A." />
-	<meta property="og:type" content="article" />
-	<meta property="og:url" content="" />
-	<meta property="og:image" content="" />
-	<meta property="og:description" content="" />
-	<meta property="og:site_name" content="" />
-	<meta property="og:price:amount" content="15.00" />
-	<meta property="og:price:currency" content="USD" />
+	<meta property="og:type" content="website" />	
+	@yield('imgfacebook')	
+
+	<meta property="og:description" content="Empresa de Bienes Raices y Multiservicios" />
+	
+	
 
 	<meta name="keywords" content="Alquiler de Casas en Nicaragua,Alquiler de casas, en  Managua,Alquiler de Casas en Granada,Alquiler de Casas en Masaya,
 	Alquiler de Casas en León,Alquiler de Casas en Estelí,Alquiler de Casas,Alquiler de Apartamentos,Alquiler de Bodegas,
